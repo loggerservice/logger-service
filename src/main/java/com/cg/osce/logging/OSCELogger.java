@@ -93,25 +93,22 @@ public class OSCELogger {
 
 	}
 
-	public static void main(String[] args) {
-		 
-		SpringApplication.run(OSCELogger.class, args);
-		OSCELogger logger = new OSCELogger();
-		PropertyConfigurator.configure("log4j.properties");
-		Object[] objectarray = new Object[] { 1, "helloworld" };
-		logger.log("135458", "MyServer", "OSCE Accelerators", "logger-service", "testLogging", Level.INFO, objectarray,
-				"123wer");
-		Log log = new Log();
-		log.setApplication("application");
-		log.setModule("module");
-		log.setMessageType("messageType");
-		log.setRequestParams(objectarray);
-		logger.log("135458", "MyServer", "OSCE Accelerators", "logger-service", "testLogging", Level.INFO, new Log(),
-				"123wer", 200);
-
-		
-	}
-
+	/*
+	 * public static void main(String[] args) {
+	 * 
+	 * SpringApplication.run(OSCELogger.class, args); OSCELogger logger = new
+	 * OSCELogger(); PropertyConfigurator.configure("log4j.properties"); Object[]
+	 * objectarray = new Object[] { 1, "helloworld" }; logger.log("135458",
+	 * "MyServer", "OSCE Accelerators", "logger-service", "testLogging", Level.INFO,
+	 * objectarray, "123wer"); Log log = new Log();
+	 * log.setApplication("application"); log.setModule("module");
+	 * log.setMessageType("messageType"); log.setRequestParams(objectarray);
+	 * logger.log("135458", "MyServer", "OSCE Accelerators", "logger-service",
+	 * "testLogging", Level.INFO, new Log(), "123wer", 200);
+	 * 
+	 * 
+	 * }
+	 */
 	private void writeMessage(String logMessage, Level level) {
 		if (Level.DEBUG == level)
 			LOGGER.debug(logMessage);
