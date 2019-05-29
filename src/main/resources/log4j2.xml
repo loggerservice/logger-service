@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration>
+	<Appenders>
+		<Console name="Console" target="SYSTEM_OUT">
+			<PatternLayout
+				pattern="%d{yyyy-MMM-dd hh:mm:ss a } %level %c - %m %n" />
+		</Console>
+		<JDBC name="MySQLDatabase" tableName="nikhil">
+			<ConnectionFactory
+				class="com.cg.osce.logging.repository.ConnectionFactory"
+				method="getConnection" />
+			<Column name="log_id" pattern="%u" />
+			<Column name="timeStamp" isEventTimestamp="true" />
+			<Column name="message" pattern="%m" />
+
+		</JDBC>
+	</Appenders>
+	<Loggers>
+		<Logger name="com.cg.osce.logging" level="debug"
+			additivity="false">
+			<AppenderRef ref="Console" />
+			<AppenderRef ref="MySQLDatabase" />
+		</Logger>
+
+		<Root level="trace">
+			<AppenderRef ref="Console" />
+			<AppenderRef ref="MySQLDatabase" />
+		</Root>
+	</Loggers>
+
+</Configuration>
+
