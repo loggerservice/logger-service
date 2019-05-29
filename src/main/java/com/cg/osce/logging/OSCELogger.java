@@ -109,6 +109,7 @@ public class OSCELogger {
 		logger.log("135458", "MyServer", "OSCE Accelerators", "logger-service", "testLogging", Level.INFO, new Log(),
 				"123wer", 200);
 
+		
 	}
 
 	private void writeMessage(String logMessage, Level level) {
